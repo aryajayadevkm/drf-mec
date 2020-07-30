@@ -10,6 +10,13 @@ class BranchSerializer(serializers.ModelSerializer):
 
 
 class StudentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = ('first_name', 'last_name','branch', 'roll_no', 'year_of_joining')
+
+
+class StudentDetailSerializer(serializers.ModelSerializer):
     full_name = serializers.CharField()
     branch = serializers.CharField(source='branch.branch_name')
 
